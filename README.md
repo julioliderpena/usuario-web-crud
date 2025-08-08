@@ -1,3 +1,28 @@
+PRUEBA SPS REACT
+Crear un CRUD de usuarios
+Reglas
+
+************************************************************************** 
+Crear la página de inicio de sesión (signIn) para autenticar al usuario (usar el usuario previamente registrado para validar).
+RESPUESTA: Se creó la página y/o formulario para iniciar sesión o Login, para ingresar por primera vez lo puede hacer con el usuario solicitado "email": "admin@spsgroup.com.br", ""password": "1234"
+Se valida el usuario según el archivo json que se ha usado como BD, también existe el CRUD conectado a una BD en SQL Server (servidor en la nube), pero valga recalcar que el json es el mandatorio para el login.
+
+************************************************************************** 
+Se puede utilizar cualquier tipo de almacenamiento para guardar el token.
+RESPUESTA: Se está usando cookie para almacenar el token.
+
+************************************************************************** 
+Solo será posible registrar y/o visualizar usuarios si el usuario está autenticado.
+RESPUESTA: El frontend controla según un middleware que si no tiene una sesión activa siempre lo manda a login y en login hace la validación a la BD usuarios (archivo json)
+
+************************************************************************** 
+Consumir la API creada anteriormente (test-sps-server).
+Todo se basa bajo APIs, hasta para el loggueo se usa la API get de usuarios y haciendo un filtro según el correo y la clave para validar la existencia.
+
+************************************************************************** 
+NOTA: EL PROYECTO ESTÁ CONFIGURADO PARA QUE CORRA EN EL PUERTO 3000.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`Usuario-Web-CRUD`](https://nextjs.org/docs/app/api-reference/cli/Usuario-Web-CRUD).
 
 ## Getting Started
