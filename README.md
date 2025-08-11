@@ -23,6 +23,30 @@ Todo se basa bajo APIs, hasta para el loggueo se usa la API get de usuarios y ha
 NOTA: EL PROYECTO ESTÁ CONFIGURADO PARA QUE CORRA EN EL PUERTO 3000.
 
 
+
+************************************************************************** 
+************************************************************************** 
+2025-08-11
+Se modificó la parte de llamar a los métodos back end, para que el back end permita entender los datos de la cookie que generamos en el login, 
+específicamente esta parte:
+
+const response = await fetch(url, {
+                method: 'GET',
+                credentials: "include"
+            });
+
+const response = await fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },    
+    credentials: "include", 
+    body: JSON.stringify(data)
+  });
+************************************************************************** 
+************************************************************************** 
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`Usuario-Web-CRUD`](https://nextjs.org/docs/app/api-reference/cli/Usuario-Web-CRUD).
 
 ## Getting Started
