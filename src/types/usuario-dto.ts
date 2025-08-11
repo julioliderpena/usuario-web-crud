@@ -4,5 +4,6 @@ export type UsuarioDto = {
     correo: string;
     clave: string;
     nombre: string;
+    tipo: string;
     estado: string;
 }

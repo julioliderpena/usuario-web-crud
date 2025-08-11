@@ -98,12 +98,17 @@ export function Navbar() {
                                 <br></br>
                                 <div className="text-left space-y-2">
                                     <p className="text-xs font-medium">
-                                        {session.nombre}
+                                        <b>Nombre: </b>{session.nombre}
                                     </p>
                                 </div>
                                 <div className="text-left space-y-2">
                                     <p className="text-xs font-medium">
-                                        {session.correo}
+                                        <b>Correo: </b>{session.correo}
+                                    </p>
+                                </div>
+                                <div className="text-left space-y-2">
+                                    <p className="text-xs font-medium">
+                                        <b>Tipo: </b>{session.tipo}
                                     </p>
                                 </div>
 

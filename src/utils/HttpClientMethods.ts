@@ -3,7 +3,8 @@ export const genericPost = async <T>(data: T, apiUrl: string): Promise<any> => {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
-    },
+    },    
+    credentials: "include", 
     body: JSON.stringify(data)
   });
 
@@ -22,6 +23,7 @@ export const genericPut = async <T>(data: T, apiUrl: string): Promise<any> => {
     headers: {
       "Content-Type": "application/json"
     },
+    credentials: "include", 
     body: JSON.stringify(data)
   });
 
@@ -39,7 +41,8 @@ export const genericDelete = async (apiUrl: string): Promise<any> => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
-    }
+    }, 
+    credentials: "include"
   });
 
   if (!response.ok) {

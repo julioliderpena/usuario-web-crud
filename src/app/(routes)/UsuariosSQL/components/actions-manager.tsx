@@ -55,8 +55,9 @@ export function ActionsManager() {
 
     const columns: ColumnDef<UsuarioDto>[] = [
         addColumnTexto('id', 'ID USUARIO', '10%', 'text-right'),
-        addColumnTexto('correo', 'CORREO', '35%', 'text-left'),
-        addColumnTexto('nombre', 'NOMBRE', '35%', 'text-left'),
+        addColumnTexto('correo', 'CORREO', '30%', 'text-left'),
+        addColumnTexto('nombre', 'NOMBRE', '30%', 'text-left'),
+        addColumnTexto('tipo', 'TIPO', '10%', 'text-left'),
         addColumnCheckbox('estado', 'ESTADO', 'A', '10%', 'text-center'),
         addColumnActions(true, '5%', 'text-center', EventoUpdate, EventoDelete),
     ]

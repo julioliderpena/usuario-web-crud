@@ -80,6 +80,14 @@ export const obtainToken = async (): Promise<SessionDto | null> => {
 };
 
 
+// export function getSessionToken(): string | null {
+//     return document.cookie
+//         .split('; ')
+//         .find(row => row.startsWith('token='))
+//         ?.split('=')[1] || null;
+// }
+
+
 const ValidarAcceso = async (correo: string, clave: string): Promise<RespSessionDto> => {
   const resp: RespSessionDto = { message: "Credenciales Invalidas", success: false };
 
@@ -93,6 +101,7 @@ const ValidarAcceso = async (correo: string, clave: string): Promise<RespSession
           usuarioId: typeof usuario.id === "number" ? usuario.id : 0,
           correo: typeof usuario.correo === "string" ? usuario.correo : "",
           nombre: typeof usuario.nombre === "string" ? usuario.nombre : "",
+          tipo: typeof usuario.tipo === "string" ? usuario.tipo : "",
           exp: Math.floor(Date.now() / 1000) + Number(COOKIE_MAX_AGE)
         }
 
@@ -106,7 +115,8 @@ const ValidarAcceso = async (correo: string, clave: string): Promise<RespSession
           value: token,
           httpOnly: true,
           secure: false,
-          sameSite: "strict",
+          // sameSite: "strict",
+          sameSite: "lax",
           maxAge: Number(COOKIE_MAX_AGE),
           path: "/",
         });

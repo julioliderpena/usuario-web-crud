@@ -26,6 +26,7 @@ const UsuarioSchema = z.object({
   correo: z.string().min(1, "El correo es requerido!"), 
   clave: z.string().min(1, "La clave es super requerida!"),
   nombre: z.string().min(1, "El nombre es requerido!"),
+  tipo: z.string().min(1, "El tipo es requerido!"),
   estado: z.string().min(1, "El estado es requerido!"),
 })
 
@@ -37,8 +38,13 @@ type ActionsFormProps = {
 };
 
 const optionsEstado = [
-  { valor: "A", texto: "ACTIVO" },
-  { valor: "I", texto: "INACTIVO" }
+  { valor: "A", texto: "Activo" },
+  { valor: "I", texto: "Inactivo" }
+]
+
+const optionsTipo = [
+  { valor: "admin", texto: "Admin" },
+  { valor: "usuario", texto: "Usuario" }
 ]
 
 export const FormUpsert = ({ initialData, setIsOpen, onSuccess }: ActionsFormProps) => {
@@ -49,6 +55,7 @@ export const FormUpsert = ({ initialData, setIsOpen, onSuccess }: ActionsFormPro
       correo: "",
       clave: "",
       nombre: "",
+      tipo: "usuario",
       estado: "A",
     },
     values: initialData
@@ -126,6 +133,13 @@ export const FormUpsert = ({ initialData, setIsOpen, onSuccess }: ActionsFormPro
               <UseFormFieldText
                 nombreAtributo="nombre" textoLabel="Nombre"
                 controlForm={form.control} esRequerido={true} fullWidth={true}
+              />
+            </div>
+            <div>
+              <UseFormFieldSelect
+                nombreAtributo="tipo" textoLabel="Tipo"
+                controlForm={form.control} listadoOpciones={optionsTipo}
+                esRequerido={true} fullWidth={true}
               />
             </div>
             <div>
